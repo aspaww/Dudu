@@ -3,7 +3,7 @@ import { ShoppingCart, User, Search, AlignRight } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="bg-white p-4">
+    <header className="bg-white p-6 ">
       {/* Mobil Düzen */}
       <div className="md:hidden">
         {/* Üst Satır: Logo - İkonlar */}
@@ -38,7 +38,7 @@ export default function Header() {
         {/* Resim Üzerinde Yazılar */}
         <div className="relative mt-10">
           <img
-            className="rounded-3xl w-[clamp(100%,80vw,100%)] h-auto"
+            className=" rounded-3xl w-[clamp(100%,80vw,100%)] h-auto"
             src="https://picsum.photos/600/800"
             alt="Random Image"
           />
@@ -84,7 +84,7 @@ export default function Header() {
         </nav>
         
         {/* Sağ: İkonlar */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-5">
           <User className="w-[clamp(20px,5vw,28px)] h-auto cursor-pointer text-black" />
           <Search className="w-[clamp(20px,5vw,28px)] h-auto cursor-pointer text-black" />
           <ShoppingCart className="w-[clamp(20px,5vw,28px)] h-auto cursor-pointer text-black" />
