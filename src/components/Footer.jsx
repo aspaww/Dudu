@@ -12,9 +12,9 @@ export default function Footer() {
             Bandage
           </h1>
           <div className="flex space-x-4">
-            <Facebook className="w-6 h-6 text-black cursor-pointer" />
-            <Instagram className="w-6 h-6 text-black cursor-pointer" />
-            <Twitter className="w-6 h-6 text-black cursor-pointer" />
+            <Facebook stroke="#23A6F0" className="w-6 h-6 text-black cursor-pointer" />
+            <Instagram stroke="#23A6F0" className="w-6 h-6 text-black cursor-pointer" />
+            <Twitter stroke="#23A6F0" className="w-6 h-6 text-black cursor-pointer" />
           </div>
         </div>
 
@@ -127,9 +127,9 @@ export default function Footer() {
             Bandage
           </h1>
           <div className="flex space-x-4">
-            <Facebook className="w-6 h-6 text-black cursor-pointer" />
-            <Instagram className="w-6 h-6 text-black cursor-pointer" />
-            <Twitter className="w-6 h-6 text-black cursor-pointer" />
+            <Facebook stroke="#23A6F0" className="w-6 h-6  cursor-pointer" />
+            <Instagram stroke="#23A6F0" className="w-6 h-6  cursor-pointer" />
+            <Twitter stroke="#23A6F0" className="w-6 h-6  cursor-pointer" />
           </div>
         </div>
 
