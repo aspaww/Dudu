@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white p-6">
+    <footer className="bg-white">
       {/* Mobil Düzen */}
       <div className="md:hidden text-left">
         {/* Logo ve Sosyal Medya - Tam Genişlik, 173px Yükseklik */}
