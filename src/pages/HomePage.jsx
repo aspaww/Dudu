@@ -13,7 +13,6 @@ export default function HomePage() {
 
   // Load More fonksiyonu
   const handleLoadMore = () => {
-    // Mevcut visibleCount değerini 5 artır
     setVisibleCount((prev) => prev + 5);
   };
 
@@ -112,12 +111,9 @@ export default function HomePage() {
 
       {/*
         ----------------------------------------------------------------------
-        Mobilde ve Masaüstünde aynı state (visibleCount) kullanılıyor.
-        Aşağıdaki kısımlarda visibleProducts üzerinden render yapılıyor.
+        MOBİL ÜRÜN LİSTESİ (Tek Sütun) + LOAD MORE
         ----------------------------------------------------------------------
       */}
-
-      {/* ------------------ MOBİL VERSİYON (ESKİ HALİ) ------------------ */}
       <div className="block md:hidden max-w-sm mx-auto p-4">
         <h2 className="text-center font-bold text-xl uppercase tracking-wide">
           Bestseller Blouses
@@ -130,16 +126,13 @@ export default function HomePage() {
         <div className="mt-6 flex flex-col space-y-8">
           {visibleProducts.map((product) => (
             <div key={product.id} className="flex flex-col items-center">
-              {/* Ürün Fotoğrafı */}
               <img
                 src={product.image}
                 alt={`Product ${product.id}`}
                 className="w-full h-auto object-cover rounded-md"
               />
-              {/* Ürün Bilgileri */}
               <h3 className="font-bold text-base mt-4">{product.name}</h3>
               <p className="text-gray-700 text-sm">{product.subTitle}</p>
-              {/* Fiyatlar */}
               <div className="flex items-center space-x-2 mt-1">
                 <span className="text-gray-400 line-through">
                   ${product.oldPrice.toFixed(2)}
@@ -165,9 +158,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ------------------ MASAÜSTÜ VERSİYON (5x2 Grid) ------------------ */}
+      {/*
+        ----------------------------------------------------------------------
+        MASAÜSTÜ ÜRÜN LİSTESİ (5x2 Grid) + LOAD MORE
+        ----------------------------------------------------------------------
+      */}
       <div className="hidden md:block pb-16">
-        {/* Başlık Kısmı */}
         <div className="text-center my-8">
           <h2 className="text-gray-500 uppercase tracking-widest text-sm font-semibold">
             Featured Products
@@ -183,16 +179,13 @@ export default function HomePage() {
           <div className="grid grid-cols-5 gap-8">
             {visibleProducts.map((product) => (
               <div key={product.id} className="text-center">
-                {/* Ürün Görseli */}
                 <img
                   src={product.image}
                   alt={`Product ${product.id}`}
                   className="w-full h-auto object-cover"
                 />
-                {/* Ürün Adı */}
                 <h4 className="mt-3 font-semibold">{product.name}</h4>
                 <p className="text-gray-600 text-sm">{product.subTitle}</p>
-                {/* Fiyat Bilgisi */}
                 <div className="flex items-center justify-center space-x-2 mt-2">
                   <span className="text-gray-400 line-through">
                     ${product.oldPrice.toFixed(2)}
@@ -215,6 +208,53 @@ export default function HomePage() {
                 LOAD MORE PRODUCTS
               </button>
             )}
+          </div>
+        </div>
+      </div>
+
+      {/*
+        ----------------------------------------------------------------------
+        YENİ BÖLÜM (Masaüstü: solda fotoğraflar, sağda metin. 
+                     Mobil: önce metin, sonra fotoğraflar)
+        ----------------------------------------------------------------------
+      */}
+      <div className="max-w-6xl mx-auto px-4 mb-8">
+        {/* 
+          grid-cols-1 => Mobilde tek sütun 
+          md:grid-cols-2 => Masaüstünde 2 sütun
+          order sınıfları => Mobilde text üstte (order-1), fotoğraflar altta (order-2)
+                             Masaüstünde fotoğraflar solda (md:order-1), metin sağda (md:order-2)
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Metin (Mobilde üstte, Masaüstünde sağda) */}
+          <div className="order-1 md:order-2">
+            <h2 className="text-[#23A6F0] font-semibold text-sm uppercase tracking-wide">
+              Featured Products
+            </h2>
+            <h1 className="text-2xl font-bold mt-2">We love what we do</h1>
+
+            <p className="text-gray-600 mt-4 leading-relaxed">
+              Problems trying to resolve the conflict between the two major realms
+              of Classical physics: Newtonian mechanics
+            </p>
+            <p className="text-gray-600 mt-4 leading-relaxed">
+              Problems trying to resolve the conflict between the two major realms
+              of Classical physics: Newtonian mechanics
+            </p>
+          </div>
+
+          {/* Fotoğraflar (Mobilde altta, Masaüstünde solda) */}
+          <div className="order-2 md:order-1 flex gap-4 justify-center">
+            <img
+              src="https://picsum.photos/300/400?random=101"
+              alt="Woman with glasses"
+              className="w-1/2 h-auto object-cover rounded"
+            />
+            <img
+              src="https://picsum.photos/300/400?random=102"
+              alt="Woman with headphones"
+              className="w-1/2 h-auto object-cover rounded"
+            />
           </div>
         </div>
       </div>
