@@ -1,6 +1,6 @@
 // data/sahteVeri.js
 
-const sahteVeri = Array.from({ length: 50 }, (_, index) => {
+const sahteVeri = Array.from({ length: 85 }, (_, index) => {
     const id = index + 1;
   
     // oldPrice: 20 ile 100 arasında rastgele bir değer
@@ -8,6 +8,9 @@ const sahteVeri = Array.from({ length: 50 }, (_, index) => {
   
     // newPrice: oldPrice'ın %50 ile %90'ı arasında rastgele bir değer (oldPrice'dan düşük)
     const newPrice = parseFloat((oldPrice * (0.5 + Math.random() * 0.4)).toFixed(2));
+  
+    // rating: 0 ile 5 arasında rastgele bir değer (1 ondalık basamak)
+    const rating = parseFloat((Math.random() * 5).toFixed(1));
   
     return {
       id,
@@ -17,7 +20,7 @@ const sahteVeri = Array.from({ length: 50 }, (_, index) => {
       description:
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       department: "English Department",
-      rating: 4.9,
+      rating: rating,
       salesCount: 15,
       oldPrice: oldPrice,
       newPrice: newPrice,

@@ -18,7 +18,7 @@ export default function ShopProducts() {
     items.forEach((item, index) => {
       setTimeout(() => {
         setVisibleItems((prev) => [...prev, item]);
-      }, index * 350); // Her ürün 100ms arayla ekleniyor
+      }, index * 100); // Her ürün 100ms arayla ekleniyor
     });
   };
 
