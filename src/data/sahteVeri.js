@@ -2,23 +2,30 @@
 
 const sahteVeri = Array.from({ length: 50 }, (_, index) => {
     const id = index + 1;
+  
+    // oldPrice: 20 ile 100 arasında rastgele bir değer
+    const oldPrice = parseFloat((Math.random() * 80 + 20).toFixed(2));
+  
+    // newPrice: oldPrice'ın %50 ile %90'ı arasında rastgele bir değer (oldPrice'dan düşük)
+    const newPrice = parseFloat((oldPrice * (0.5 + Math.random() * 0.4)).toFixed(2));
+  
     return {
       id,
-      // Masaüstü tarafında kullanılan (eski) alanlar
+      // Masaüstü için alanlar
       name: "Graphic Design",
-      subTitle: "Shirt", // <-- subTitle eklendi
+      subTitle: "Shirt",
       description:
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       department: "English Department",
       rating: 4.9,
       salesCount: 15,
-      oldPrice: 16.48,
-      newPrice: 6.48,
+      oldPrice: oldPrice,
+      newPrice: newPrice,
       isSale: true,
       hours: "22h",
       lessons: 64,
   
-      // Mobil için ek alanlar (yeni tasarım)
+      // Mobil için ek alanlar
       isNew: true,
       tags: ["Google", "Trending", "New"],
       title: "Loudest à la Madison #1 (L'Integral)",
