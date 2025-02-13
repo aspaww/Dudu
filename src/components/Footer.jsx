@@ -19,11 +19,11 @@ export default function Footer() {
         </div>
 
         {/* Diğer İçerikler (menüler, Get In Touch vs.) */}
-        <div className="mt-6">
+        <div className="mt-6 pl-3">
           <h2 className="font-bold text-[16px] leading-[2rem] tracking-[0.1px] text-[#252B42]">
             Company Info
           </h2>
-          <ul className="space-y-1">
+          <ul className="space-y-1 ">
             <li className="font-bold text-[14px] leading-[2rem] tracking-[0.2px] text-[#737373]">
               About Us
             </li>
@@ -39,7 +39,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 pl-3">
           <h2 className="font-bold text-[16px] leading-[2rem] tracking-[0.1px] text-[#252B42]">
             Legal
           </h2>
@@ -59,7 +59,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 pl-3">
           <h2 className="font-bold text-[16px] leading-[2rem] tracking-[0.1px] text-[#252B42]">
             Features
           </h2>
@@ -79,7 +79,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 pl-3">
           <h2 className="font-bold text-[16px] leading-[2rem] tracking-[0.1px] text-[#252B42]">
             Resources
           </h2>
@@ -99,7 +99,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 pl-3">
           <h2 className="font-bold text-[16px] leading-[2rem] tracking-[0.1px] text-[#252B42]">
             Get In Touch
           </h2>
