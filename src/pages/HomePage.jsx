@@ -6,6 +6,7 @@ import TopProduct from "../components2/TopProduct";
 import ProductList from "../components2/ProductList";
 import ProductCard from "../components2/ProductCard";
 import HeroImage from "../components2/HeroImage";
+import WeLove from "../components2/WeLove";
 
 export default function HomePage() {
   const [visibleCount, setVisibleCount] = useState(5);
@@ -21,12 +22,14 @@ export default function HomePage() {
         <HeroImage />
       <TopLogos />
       <TopProduct />
+      
       <ProductList
         visibleProducts={visibleProducts}
         handleLoadMore={handleLoadMore}
         totalProductsLength={allProducts.length}
         visibleCount={visibleCount}
       />
+      <WeLove />
 
       {/* Örnek: "Featured Posts" => ilk 2 ürünü gösteriyoruz */}
       <div className="max-w-6xl mx-auto px-4 py-12">
