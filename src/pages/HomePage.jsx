@@ -157,7 +157,7 @@ export default function HomePage() {
           {visibleCount < allProducts.length && (
             <button
               onClick={handleLoadMore}
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+              className="bg-white text-[#23A6F0] border border-[#23A6F0] px-6 py-2 rounded hover:bg-[#23A6F0] hover:text-white transition"
             >
               LOAD MORE PRODUCTS
             </button>
@@ -210,7 +210,7 @@ export default function HomePage() {
             {visibleCount < allProducts.length && (
               <button
                 onClick={handleLoadMore}
-                className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+                className="bg-white text-[#23A6F0] border border-[#23A6F0] px-6 py-2 rounded hover:bg-[#23A6F0] hover:text-white transition"
               >
                 LOAD MORE PRODUCTS
               </button>
