@@ -1,7 +1,7 @@
 // src/components2/Header.jsx
 import '../App.css';
 import {
-  ShoppingCart,  Search, AlignRight,
+  ShoppingCart, Search, AlignRight,
   Phone, Mail, Instagram, Youtube, Twitter, Facebook,
   Heart
 } from "lucide-react";
@@ -15,22 +15,24 @@ export default function Header() {
     <header className="w-full">
       {/* ================= DESKTOP TOP BAR ================= */}
       <div className="hidden md:flex w-full bg-[#2A2F3A] text-white">
-        <div className="max-w-screen-xl w-full px-6 py-2 flex items-center text-sm">
+        <div className="max-w-screen-xl w-full mx-auto px-6 py-4 flex items-center justify-between text-sm">
           {/* Sol Grup: Telefon & E-posta */}
-          <div className="flex items-center space-x-4 flex-shrink-0">
-            <span className="flex items-center">
-              <Phone className="mr-1" /> (225) 555-0118
-            </span>
-            <span className="flex items-center">
-              <Mail className="mr-1" /> michelle.rivera@example.com
-            </span>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-1">
+              <Phone className="w-4 h-4" />
+              <span>(225) 555-0118</span> 
+            </div>
+            <div className="flex items-center space-x-1">
+              <Mail className="w-4 h-4" />
+              <span>michelle.rivera@example.com</span>
+            </div>
           </div>
           {/* Orta Grup: Bilgilendirme Mesajı */}
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 text-center">
             <span>Follow Us &amp; get a chance to win 80% off</span>
           </div>
           {/* Sağ Grup: Sosyal Medya İkonları */}
-          <div className="flex items-center space-x-2 flex-shrink-0">
+          <div className="flex items-center space-x-3">
             <span>Follow Us:</span>
             <Instagram className="w-4 h-4" />
             <Youtube className="w-4 h-4" />
