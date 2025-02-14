@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import sahteVeri from "../data/sahteVeri";
 import "../styles/global.css"; // Animasyonlar için gerekli CSS
 
@@ -69,9 +70,13 @@ export default function ShopProducts() {
       {/* Ürün Grid'i: id="product-grid" scroll hedefi için */}
       <div id="product-grid" className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
         {visibleItems.map((item) => (
-          <div key={item.id} className="flex flex-col items-center animate-fadeInUp">
+          <Link 
+            to={`/product/${item.id}`} 
+            key={item.id} 
+            className="flex flex-col items-center animate-fadeInUp no-underline hover:opacity-80 transition"
+          >
             <img src={item.image} alt={item.name} className="w-full h-auto object-cover" />
-            <h2 className="font-bold mt-2">{item.name}</h2>
+            <h2 className="font-bold mt-2 text-black">{item.name}</h2>
             <p className="text-gray-500">{item.department}</p>
             <div className="flex items-center space-x-2 mt-2">
               <span className="line-through text-gray-400">${item.oldPrice.toFixed(2)}</span>
@@ -83,7 +88,7 @@ export default function ShopProducts() {
               <span className="w-4 h-4 rounded-full bg-orange-500"></span>
               <span className="w-4 h-4 rounded-full bg-red-500"></span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

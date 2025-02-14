@@ -1,7 +1,8 @@
-// src/components2/HeroImage.jsx
-
+import { useNavigate } from "react-router-dom";
 
 export default function HeroImage() {
+  const navigate = useNavigate();
+
   return (
     <div>
       {/* MASAÜSTÜ HERO (Desktop) */}
@@ -14,11 +15,16 @@ export default function HeroImage() {
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
           <p className="text-[clamp(1rem,3vw,1.5rem)] text-[#2A7CC7] mb-5">SUMMER 2020</p>
-          <h1 className="mt-2 text-[clamp(1.5rem,3vw,2rem)] text-white font-bold mb-5">NEW COLLECTION</h1>
+          <h1 className="mt-2 text-[clamp(1.5rem,3vw,2rem)] text-white font-bold mb-5">
+            NEW COLLECTION
+          </h1>
           <p className="mt-2 text-[clamp(0.8rem,3vw,1rem)] text-gray-200 break-words">
             We know how large objects will act, but things on a small scale.
           </p>
-          <button className="mt-4 bg-[#23A6F0] text-white rounded-[5px] px-4 py-2">
+          <button 
+            onClick={() => navigate("/shop")}
+            className="mt-4 bg-[#23A6F0] text-white rounded-[5px] px-4 py-2 transition duration-300 ease-in-out hover:bg-[#1E90FF] hover:shadow-lg"
+          >
             SHOP NOW
           </button>
         </div>
@@ -40,7 +46,10 @@ export default function HeroImage() {
             <p className="mt-2 text-[clamp(0.8rem,3vw,1rem)] text-[#737373] break-words">
               We know how large objects will act, but things on a small scale.
             </p>
-            <button className="mt-4 bg-[#23A6F0] text-white rounded-[5px] px-4 py-2">
+            <button 
+              onClick={() => navigate("/shop")}
+              className="mt-4 bg-[#23A6F0] text-white rounded-[5px] px-4 py-2 transition duration-300 ease-in-out hover:bg-[#1E90FF] hover:shadow-lg"
+            >
               SHOP NOW
             </button>
           </div>

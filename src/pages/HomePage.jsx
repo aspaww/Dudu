@@ -1,12 +1,12 @@
 // src/pages/HomePage.jsx
 import { useState } from "react";
 import sahteVeri from "../data/sahteVeri";
-import TopLogos from "../components2/TopLogos";
-import TopProduct from "../components2/TopProduct";
-import ProductList from "../components2/ProductList";
-import ProductCard from "../components2/ProductCard";
-import HeroImage from "../components2/HeroImage";
-import WeLove from "../components2/WeLove";
+import TopLogos from "../Homecomp/TopLogos";
+import TopProduct from "../Homecomp/TopProduct";
+import ProductList from "../Homecomp/ProductList";
+import ProductCard from "../Homecomp/ProductCard";
+import HeroImage from "../Homecomp/HeroImage";
+import WeLove from "../Homecomp/WeLove";
 
 export default function HomePage() {
   const [visibleCount, setVisibleCount] = useState(5);

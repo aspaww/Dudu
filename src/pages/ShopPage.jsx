@@ -1,9 +1,9 @@
 // src/pages/ShopPage.jsx
-import ShopHeader from "../components3/ShopHeader";
-import ShopCategories from "../components3/ShopCategories";
-import TopLogos from "../components2/TopLogos";
-import ShopProducts from "../components3/ShopProducts";
-import ShopFilter from "../components3/ShopFilter";
+import ShopHeader from "../ShopComp/ShopHeader";
+import ShopCategories from "../ShopComp/ShopCategories";
+import TopLogos from "../Homecomp/TopLogos";
+import ShopProducts from "../ShopComp/ShopProducts";
+import ShopFilter from "../ShopComp/ShopFilter";
 
 export default function ShopPage() {
   return (

@@ -1,10 +1,11 @@
 // src/components/ProductList.jsx
 
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function ProductList({ visibleProducts, handleLoadMore, totalProductsLength, visibleCount }) {
   return (
-    <div className=" mx-auto px-4 pb-16">
+    <div className="mx-auto px-4 pb-16">
       {/* Başlık */}
       <div className="text-center my-8">
         <h2 className="text-gray-500 uppercase tracking-widest text-sm font-semibold">
@@ -20,13 +21,17 @@ export default function ProductList({ visibleProducts, handleLoadMore, totalProd
       {/* Grid düzeni responsive: Mobilde tek sütun, md ve üzeri için 5 sütun */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
         {visibleProducts.map((product) => (
-          <div key={product.id} className="text-center">
+          <Link 
+            to={`/product/${product.id}`} 
+            key={product.id} 
+            className="text-center no-underline hover:opacity-80 transition"
+          >
             <img
               src={product.image}
               alt={`Product ${product.id}`}
               className="w-full h-auto object-cover"
             />
-            <h4 className="mt-3 font-semibold">{product.name}</h4>
+            <h4 className="mt-3 font-semibold text-black">{product.name}</h4>
             <p className="text-gray-600 text-sm">{product.subTitle}</p>
             <div className="flex items-center justify-center space-x-2 mt-2">
               <span className="text-gray-400 line-through">
@@ -36,7 +41,7 @@ export default function ProductList({ visibleProducts, handleLoadMore, totalProd
                 ${product.newPrice.toFixed(2)}
               </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
