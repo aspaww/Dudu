@@ -1,24 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import sahteVeri from "../data/sahteVeri";
 import "../styles/global.css"; // Animasyonlar için gerekli CSS
 
-export default function ShopProducts() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12; // 3 satır x 4 sütun
-  const totalPages = Math.ceil(sahteVeri.length / itemsPerPage);
+// Mobile olup olmadığını tespit eden hook
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return isMobile;
+}
 
-  // Görüntülenen ürünleri saklayan state
+export default function ShopProducts() {
+  const isMobile = useIsMobile();
+  const itemsPerPage = isMobile ? 5 : 12; // Mobilde 5, masaüstünde 12 ürün
+  const totalPages = Math.ceil(sahteVeri.length / itemsPerPage);
+  
+  const [currentPage, setCurrentPage] = useState(1);
   const [visibleItems, setVisibleItems] = useState(
     sahteVeri.slice(0, itemsPerPage)
   );
 
-  // Yeni ürünleri sırayla ekleyen fonksiyon
+  // Eğer ekran boyutu değişirse, ürün sayısını güncelle
+  useEffect(() => {
+    setVisibleItems(sahteVeri.slice(0, itemsPerPage));
+    setCurrentPage(1);
+  }, [itemsPerPage]);
+
+  // Yeni ürünleri tek tek ekleyen fonksiyon (staggering)
   const staggerItems = (items) => {
-    setVisibleItems([]); // Önce ekranı temizle
+    setVisibleItems([]); // Önce mevcut ürünleri temizle
     items.forEach((item, index) => {
       setTimeout(() => {
         setVisibleItems((prev) => [...prev, item]);
-      }, index * 100); // Her ürün 100ms arayla ekleniyor
+      }, index * 500); // Her ürün 0.75 saniye arayla ekleniyor
     });
   };
 
@@ -27,8 +44,9 @@ export default function ShopProducts() {
     if (pageNumber === currentPage) return;
 
     // Ürün grid'ine yumuşak scroll yap
-    document.getElementById("product-grid")?.scrollIntoView({ 
-      behavior: "smooth", block: "start" 
+    document.getElementById("product-grid")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
     });
 
     setCurrentPage(pageNumber);
@@ -41,9 +59,14 @@ export default function ShopProducts() {
     }, 200);
   };
 
+  // Görüntülenecek sayfa numaralarını belirle (önceki, mevcut, sonraki)
+  const visiblePages = [currentPage - 1, currentPage, currentPage + 1].filter(
+    (p) => p >= 1 && p <= totalPages
+  );
+
   return (
     <div>
-      {/* Ürün Grid'i */}
+      {/* Ürün Grid'i: id="product-grid" scroll hedefi için */}
       <div id="product-grid" className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
         {visibleItems.map((item) => (
           <div key={item.id} className="flex flex-col items-center animate-fadeInUp">
@@ -68,11 +91,14 @@ export default function ShopProducts() {
       <div className="flex justify-center mt-8">
         <div className="inline-flex items-center border rounded overflow-hidden">
           {currentPage > 1 && (
-            <button onClick={() => goToPage(1)} className="px-4 py-2 border-r bg-gray-100 hover:bg-gray-200">
+            <button
+              onClick={() => goToPage(1)}
+              className="px-4 py-2 border-r bg-gray-100 hover:bg-gray-200"
+            >
               First
             </button>
           )}
-          {[currentPage - 1, currentPage, currentPage + 1].filter(p => p >= 1 && p <= totalPages).map((page) => (
+          {visiblePages.map((page) => (
             <button
               key={page}
               onClick={() => goToPage(page)}
@@ -84,7 +110,10 @@ export default function ShopProducts() {
             </button>
           ))}
           {currentPage < totalPages && (
-            <button onClick={() => goToPage(totalPages)} className="px-4 py-2 bg-gray-100 hover:bg-gray-200">
+            <button
+              onClick={() => goToPage(totalPages)}
+              className="px-4 py-2 bg-gray-100 hover:bg-gray-200"
+            >
               Next
             </button>
           )}
