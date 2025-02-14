@@ -1,16 +1,14 @@
 // src/pages/ProductDetail.jsx
-
 import { useParams } from "react-router-dom";
 import sahteVeri from "../data/sahteVeri";
 import ShopHeader from "../ShopComp/ShopHeader";
 import TopLogos from "../Homecomp/TopLogos";
 import ProductDetailCard from "../Pdetailcomp/ProductDetailCard";
+import DetailTabs from "../Pdetailcomp/DetailTabs";
+import BestSellerProducts from "../Pdetailcomp/BestSellerProducts";
 
 export default function ProductDetail() {
   const { id } = useParams();
-
-
-
   const product = sahteVeri.find((item) => item.id.toString() === id);
 
   if (!product) {
@@ -26,6 +24,19 @@ export default function ProductDetail() {
       <ShopHeader />
       
       <ProductDetailCard product={product} />
+
+      {/* Dinamik DetailTabs kullanımı */}
+      <DetailTabs
+        reviewCount={product.reviewCount}
+        detailTabsMiddleHeading={product.detailTabsMiddleHeading}
+        detailTabsMiddleTexts={product.detailTabsMiddleTexts}
+        detailTabsRightTopHeading={product.detailTabsRightTopHeading}
+        detailTabsRightTopRows={product.detailTabsRightTopRows}
+        detailTabsRightBottomHeading={product.detailTabsRightBottomHeading}
+        detailTabsRightBottomRows={product.detailTabsRightBottomRows}
+      />
+
+      <BestSellerProducts />
       <TopLogos />
     </div>
   );
