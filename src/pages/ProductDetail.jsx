@@ -1,5 +1,5 @@
 // src/pages/ProductDetail.jsx
-import { useEffect } from "react";
+
 import { useParams } from "react-router-dom";
 import sahteVeri from "../data/sahteVeri";
 import ShopHeader from "../ShopComp/ShopHeader";
@@ -9,10 +9,7 @@ import ProductDetailCard from "../Pdetailcomp/ProductDetailCard";
 export default function ProductDetail() {
   const { id } = useParams();
 
-  // Sayfa yüklendiğinde sayfanın başına kaydır
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
 
   const product = sahteVeri.find((item) => item.id.toString() === id);
 
