@@ -36,7 +36,7 @@ export default function ShopProducts() {
     items.forEach((item, index) => {
       setTimeout(() => {
         setVisibleItems((prev) => [...prev, item]);
-      }, index * 250); // Her ürün 0.75 saniye arayla ekleniyor
+      }, index * 250); // Her ürün 0.25 saniye arayla ekleniyor
     });
   };
 
@@ -103,6 +103,14 @@ export default function ShopProducts() {
               First
             </button>
           )}
+          {currentPage > 1 && (
+            <button
+              onClick={() => goToPage(currentPage - 1)}
+              className="px-4 py-2 border-r bg-gray-100 hover:bg-gray-200"
+            >
+              Back
+            </button>
+          )}
           {visiblePages.map((page) => (
             <button
               key={page}
@@ -116,10 +124,18 @@ export default function ShopProducts() {
           ))}
           {currentPage < totalPages && (
             <button
+              onClick={() => goToPage(currentPage + 1)}
+              className="px-4 py-2 border-r bg-gray-100 hover:bg-gray-200"
+            >
+              Next
+            </button>
+          )}
+          {currentPage < totalPages && (
+            <button
               onClick={() => goToPage(totalPages)}
               className="px-4 py-2 bg-gray-100 hover:bg-gray-200"
             >
-              Next
+              Last
             </button>
           )}
         </div>
