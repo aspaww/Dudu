@@ -60,10 +60,18 @@ export default function Header() {
           {/* Sağ Grup: Sosyal Medya İkonları */}
           <div className="flex items-center space-x-3">
             <span>Follow Us:</span>
-            <Instagram className="w-4 h-4" />
-            <Youtube className="w-4 h-4" />
-            <Facebook className="w-4 h-4" />
-            <Twitter className="w-4 h-4" />
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              <Youtube className="w-4 h-4" />
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <Twitter className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
@@ -126,27 +134,33 @@ export default function Header() {
               )}
             </div>
 
-            <a href="#" className="text-gray-600 hover:text-black transition">
+            <Link to="/about" className="text-gray-600 hover:text-black transition">
               About
-            </a>
-            <a href="#" className="text-gray-600 hover:text-black transition">
+            </Link>
+            <Link to="/blog" className="text-gray-600 hover:text-black transition">
               Blog
-            </a>
-            <a href="/contact" className="text-gray-600 hover:text-black transition">
+            </Link>
+            <Link to="/contact" className="text-gray-600 hover:text-black transition">
               Contact
-            </a>
-            <a href="#" className="text-gray-600 hover:text-black transition">
+            </Link>
+            <Link to="/pages" className="text-gray-600 hover:text-black transition">
               Pages
-            </a>
+            </Link>
           </nav>
           {/* Sağ: Login/Register & İkonlar */}
           <div className="flex-shrink-0 flex items-center space-x-5">
-            <a href="#" className="text-[#23A6F0] hover:opacity-80 transition">
+            <Link to="/login" className="text-[#23A6F0] hover:opacity-80 transition">
               Login / Register
-            </a>
-            <Search className="w-5 h-5 cursor-pointer text-black" />
-            <ShoppingCart className="w-5 h-5 cursor-pointer text-black" />
-            <Heart className="w-5 h-5 cursor-pointer text-black" />
+            </Link>
+            <Link to="/search">
+              <Search className="w-5 h-5 cursor-pointer text-black" />
+            </Link>
+            <Link to="/cart">
+              <ShoppingCart className="w-5 h-5 cursor-pointer text-black" />
+            </Link>
+            <Link to="/favorites">
+              <Heart className="w-5 h-5 cursor-pointer text-black" />
+            </Link>
           </div>
         </div>
       </div>
@@ -183,20 +197,20 @@ export default function Header() {
           >
             Shop
           </Link>
-          <a
-            href="#"
+          <Link
+            to="/about"
             className="text-[#252B42] text-lg font-medium"
             onClick={() => setMobileMenuOpen(false)}
           >
             About
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/blog"
             className="text-[#252B42] text-lg font-medium"
             onClick={() => setMobileMenuOpen(false)}
           >
             Blog
-          </a>
+          </Link>
           <Link
             to="/contact"
             className="text-[#252B42] text-lg font-medium"
@@ -204,26 +218,32 @@ export default function Header() {
           >
             Contact
           </Link>
-          <a
-            href="#"
+          <Link
+            to="/pages"
             className="text-[#252B42] text-lg font-medium"
             onClick={() => setMobileMenuOpen(false)}
           >
             Pages
-          </a>
+          </Link>
         </nav>
         <div className="border-t border-gray-200 w-full pt-4 flex flex-col items-center space-y-3">
-          <a
-            href="#"
+          <Link
+            to="/login"
             className="text-[#23A6F0] text-base font-medium"
             onClick={() => setMobileMenuOpen(false)}
           >
             Login / Register
-          </a>
+          </Link>
           <div className="flex items-center space-x-4">
-            <Search className="w-5 h-5 cursor-pointer text-[#23A6F0]" />
-            <ShoppingCart className="w-5 h-5 cursor-pointer text-[#23A6F0]" />
-            <Heart className="w-5 h-5 cursor-pointer text-[#23A6F0]" />
+            <Link to="/search">
+              <Search className="w-5 h-5 cursor-pointer text-[#23A6F0]" />
+            </Link>
+            <Link to="/cart">
+              <ShoppingCart className="w-5 h-5 cursor-pointer text-[#23A6F0]" />
+            </Link>
+            <Link to="/favorites">
+              <Heart className="w-5 h-5 cursor-pointer text-[#23A6F0]" />
+            </Link>
           </div>
         </div>
       </div>
