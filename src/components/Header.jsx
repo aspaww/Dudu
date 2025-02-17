@@ -197,13 +197,13 @@ export default function Header() {
           >
             Blog
           </a>
-          <a
+          <Link
             to="/contact"
             className="text-[#252B42] text-lg font-medium"
             onClick={() => setMobileMenuOpen(false)}
           >
             Contact
-          </a>
+          </Link>
           <a
             href="#"
             className="text-[#252B42] text-lg font-medium"
