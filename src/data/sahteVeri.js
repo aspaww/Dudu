@@ -1,5 +1,8 @@
 // data/sahteVeri.js
 
+const categories = ["Bedroom", "Decor", "Decoration", "Kitchen", "Lamp", "Lighting"];
+const brands = ["BrandA", "BrandB", "BrandC", "BrandD"];
+
 const sahteVeri = Array.from({ length: 85 }, (_, index) => {
   const id = index + 1;
 
@@ -46,6 +49,10 @@ const sahteVeri = Array.from({ length: 85 }, (_, index) => {
     "the quick fox jumps over the lazy dog",
   ];
 
+  // Rastgele bir category ve brand seçiyoruz
+  const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+  const randomBrand = brands[Math.floor(Math.random() * brands.length)];
+
   return {
     id,
     name: "Floating Phone",
@@ -71,6 +78,10 @@ const sahteVeri = Array.from({ length: 85 }, (_, index) => {
     shortDesc,
     colorSwatches,
     thumbnails,
+    // Yeni eklenen alanlar:
+    category: randomCategory,
+    brand: randomBrand,
+
     // Yeni DetailTabs alanları:
     detailTabsMiddleHeading,
     detailTabsMiddleTexts,
@@ -80,5 +91,10 @@ const sahteVeri = Array.from({ length: 85 }, (_, index) => {
     detailTabsRightBottomRows,
   };
 });
+
+export const shopDropdownData = {
+  women: ["Bags", "Belts", "Cosmetics", "Bags", "Hats"],
+  men: ["Bags", "Belts", "Cosmetics", "Bags", "Hats"],
+};
 
 export default sahteVeri;

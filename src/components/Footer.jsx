@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Logo ve Sosyal Medya */}
         <div className="w-full m-0 p-0 h-[10.8125rem] flex justify-between items-center bg-[#FAFAFA] p-[1rem]">
           <h1 className="font-bold text-[1.5rem] leading-[2rem] tracking-[0.1px] text-black">
-            Bandage
+            Dudu
           </h1>
           <div className="flex space-x-[1rem]">
             <Facebook stroke="#23A6F0" className="w-6 h-6 text-black cursor-pointer" />
