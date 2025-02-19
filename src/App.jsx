@@ -6,6 +6,7 @@ import ShopPage from "./pages/ShopPage";
 import ProductDetail from "./pages/ProductDetail";
 import ScrollToTop from "./components/ScrollToTop";
 import Contact from "./pages/Contact";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/shop" element={<Layout><ShopPage /></Layout>} />
         <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Signup />} />
       </Routes>
     </Router>
   );
