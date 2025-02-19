@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Signup() {
   const {
@@ -25,17 +27,18 @@ export default function Signup() {
         const customerRole = fetchedRoles.find(
           (role) => role.code.toLowerCase() === "customer"
         );
-        // Eğer "customer" bulunamazsa, listenin ilk elemanını kullanıyoruz.
+        // Eğer "customer" bulunamazsa, listenin ilk elemanının id'sini kullanıyoruz.
         reset({ role_id: customerRole ? customerRole.id : fetchedRoles[0]?.id });
       })
       .catch((error) => {
         console.error("Error fetching roles:", error);
+        toast.error("Roller alınırken bir hata oluştu");
       });
   }, [reset]);
 
   // Formdaki role_id alanını izliyoruz.
   const selectedRole = watch("role_id");
-  // Seçili rolün detaylarına ulaşmak için.
+  // Seçili rolün detaylarını almak için.
   const selectedRoleObj = roles.find((role) => role.id == selectedRole);
 
   const onSubmit = async (data) => {
@@ -45,11 +48,18 @@ export default function Signup() {
 
     try {
       await axiosInstance.post("/signup", payload);
-      alert("You need to click link in email to activate your account!");
-      navigate(-1);
+      toast.success("You need to click link in email to activate your account!");
+      // Toast mesajını kullanıcı görebilsin diye kısa bir süre bekletip yönlendiriyoruz.
+      setTimeout(() => {
+        navigate(-1);
+      }, 2000);
     } catch (error) {
       console.error(error);
-      alert(error.response?.data?.message || "Signup failed");
+      // Backend hata mesajını göster, yoksa genel bir hata mesajı
+      const errorMessage =
+        error.response?.data?.message ||
+        "Signup failed. Please check your input and try again.";
+      toast.error(errorMessage);
     }
   };
 
@@ -239,6 +249,7 @@ export default function Signup() {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 }
