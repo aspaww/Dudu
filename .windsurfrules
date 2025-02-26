@@ -1,0 +1,39 @@
+# Codeium IDE Rules File
+
+**Instructions:**
+
+1. **UI Library:**  
+   Use shadcn components whenever possible.
+
+2. **CSS Framework:**  
+   Use Tailwind CSS classes for styles; take a utility-first approach.
+
+3. **Code Structure:**  
+   - Write code in modern ES6+ syntax using functional components and React Hooks.  
+   - Create a clear, readable, and modular structure.
+
+4. **Accessibility & Semantics:**  
+   Pay attention to proper HTML semantics and accessibility standards (ARIA, tagging).
+
+5. **Performance:**  
+   Use optimizations such as lazy loading, code splitting, and memoization.
+
+6. **Code Quality:**  
+   - Write clean, DRY, and maintainable code.  
+   - Use meaningful variable and function names.  
+   - Add comment lines where necessary.
+
+7. **Testing:**  
+   Write unit tests and integration tests for important functionality (Jest, React Testing Library).
+
+8. **Linting & Formatting:**  
+   Automatically check code standards with ESLint and Prettier.
+
+9. **Documentation:**  
+   Document the code with JSDoc or similar methods.
+
+10. **Security:**  
+    Take security measures for user input and async operations (XSS protection, input sanitization).
+
+11. **Router:**  
+    Always use React Router v5 in the project.
